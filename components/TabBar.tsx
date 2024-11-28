@@ -5,6 +5,7 @@ import Animated, { useAnimatedStyle, useSharedValue, withTiming } from "react-na
 import { useState } from "react";
 import { Colors } from "@/constants/Colors";
 
+
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const [dimensions, setDimensions] = useState({ height: 20, width: 100 });
 
@@ -27,13 +28,14 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   
   return (
     <View onLayout={onTabbarLayout} style={styles.tabbar}>
+    
       <Animated.View style={[animatedStyle, {
         position: 'absolute',
-        backgroundColor: Colors.tint,
+        backgroundColor: Colors.primary,
         top: 52,
         left: 34,
         height: 8,
-        width: 40,
+        width: 30,
       }]} />
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
@@ -60,6 +62,7 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name, route.params);
           }
+
         };
 
         const onLongPress = () => {
@@ -90,5 +93,5 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom:40,
     backgroundColor: Colors.white,
-  }
+  },
 })

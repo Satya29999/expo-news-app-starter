@@ -1,3 +1,4 @@
+
 import { Pressable, StyleSheet } from "react-native";
 import React, { useEffect } from "react";
 import { icon } from "@/constants/Icons";
@@ -46,13 +47,13 @@ const TabBarButton = ({
       style={styles.tabbarBtn}
     >
       {icon[routeName]({
-        color: isFocused ? Colors.tabIconSelected : Colors.tabIconDefault,
+        color: isFocused ? Colors.primary : Colors.tabIconDefault,
         focused: isFocused,
       })}
       <Animated.Text
         style={[
           {
-            color: isFocused ? Colors.tabIconSelected : Colors.tabIconDefault,
+            color: isFocused ? Colors.primary : Colors.tabIconDefault,
             fontSize: 12,
           },
           animatedTextStyle,
